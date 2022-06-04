@@ -7,7 +7,7 @@ import Constants from "expo-constants";
 const Main = () => {
   return (
     <View style={styles.container}>
-      <SingIn />
+      <LogIn />
     </View>
   );
 };
