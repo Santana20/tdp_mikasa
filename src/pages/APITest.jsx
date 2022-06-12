@@ -2,13 +2,12 @@ import React, { useState, useEffect } from "react";
 import { TouchableHighlight, View } from "react-native";
 import StyledText from "../components/StyledText.jsx";
 import axios from "axios";
-import { exists_DNI } from "../services/api-dni.js";
-
+import { API_IA_MIKASA } from "@env";
 const APITEST = () => {
   const [message, setMessage] = useState("");
 
   const getMessageAPI = () => {
-    axios.get("https://ia-api-mikasa.herokuapp.com/").then((response) => {
+    axios.get(`${API_IA_MIKASA}`).then((response) => {
       const { data } = response;
       console.log(data);
       setMessage(data.mensaje);

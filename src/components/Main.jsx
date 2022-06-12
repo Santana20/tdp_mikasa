@@ -12,7 +12,7 @@ const Main = () => {
   return (
     <View style={styles.container}>
       {/* <Home nameDoctor={"Ramirez"} /> */}
-      <SingIn />
+      <APITEST />
     </View>
   );
 };
