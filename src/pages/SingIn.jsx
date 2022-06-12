@@ -56,15 +56,15 @@ const SingIn = () => {
 };
 
 const initialValues = {
-  nombres: "",
-  apellidos: "",
-  password: "",
-  confirm_password: "",
-  email: "",
-  codigo_doctor: "",
+  nombres: "prueba",
+  apellidos: "prueba",
+  password: "prueba",
+  confirm_password: "prueba",
+  email: "prueba@prueba.com",
+  codigo_doctor: "231",
   dni: "",
-  centro_salud: "",
-  ubic_centro_salud: "",
+  centro_salud: "prueba",
+  ubic_centro_salud: "prueba",
 };
 
 const styles = StyleSheet.create({

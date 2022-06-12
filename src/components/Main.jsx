@@ -11,7 +11,8 @@ import Constants from "expo-constants";
 const Main = () => {
   return (
     <View style={styles.container}>
-      <Home nameDoctor={"Ramirez"} />
+      {/* <Home nameDoctor={"Ramirez"} /> */}
+      <SingIn />
     </View>
   );
 };

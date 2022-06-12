@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { TouchableHighlight, View } from "react-native";
 import StyledText from "../components/StyledText.jsx";
+import axios from "axios";
+import { exists_DNI } from "../services/api-dni.js";
 
 const APITEST = () => {
   const [message, setMessage] = useState("");
 
-  const getMessageAPI = async () => {
-    const response = await globalThis.fetch("http:/10.0.2.2:5000");
-    // const response = await globalThis.fetch(
-    //   "https://restcountries.com/v3.1/name/peru"
-    // );
-    const json = await response.json();
-    console.log(json);
-    setMessage(json.mensaje);
+  const getMessageAPI = () => {
+    axios.get("https://ia-api-mikasa.herokuapp.com/").then((response) => {
+      const { data } = response;
+      console.log(data);
+      setMessage(data.mensaje);
+    });
   };
 
-  // useEffect(() => {
-  //   getMessageAPI();
-  // }, []);
+  useEffect(() => {
+    getMessageAPI();
+  }, []);
 
   return (
     <View>
