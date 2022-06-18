@@ -1,5 +1,6 @@
 import * as yup from "yup";
 import { exists_DNI } from "../services/api-dni";
+import { exists_CMP } from "../services/cmp";
 
 export const singinValidationScheme = yup.object().shape({
   nombres: yup.string().required(),
@@ -7,13 +8,42 @@ export const singinValidationScheme = yup.object().shape({
   password: yup.string().required(),
   confirm_password: yup.string().required(),
   email: yup.string().email().required(),
-  codigo_doctor: yup.string().required(),
+  codigo_doctor: yup
+    .string()
+    .required()
+    .test("CMP-MAX-8", "El CMP debe tener 6 digitos", function (value) {
+      if (value === undefined) {
+        return this.createError();
+      }
+
+      return value.length === 6 || this.createError();
+    })
+    .test(
+      "Validar CMP",
+      "El codigo ingresado no se encuetra registrado en el CMP",
+      function (value) {
+        if (value === undefined || value.length !== 6) return true;
+
+        //usando axios
+        const data = {
+          cmp: value,
+        };
+
+        return exists_CMP(data)
+          .then((data) => {
+            console.log("API Response:", { data });
+            const { success } = data;
+            return success || this.createError();
+          })
+          .catch((e) => {
+            console.log({ e });
+          });
+      }
+    ),
   dni: yup
     .string()
     .required()
     .test("DNI-MAX-8", "El DNI debe tener 8 digitos", function (value) {
-      console.log({ value });
-
       if (value === undefined) {
         return this.createError();
       }
@@ -24,9 +54,7 @@ export const singinValidationScheme = yup.object().shape({
       "Validar DNI",
       "El DNI ingresado no se encuetra en la RENIEC",
       function (value) {
-        console.log({ value });
-
-        if (value === undefined || value.length !== 8) return;
+        if (value === undefined || value.length !== 8) return true;
 
         //usando axios
         const data = {
@@ -37,7 +65,6 @@ export const singinValidationScheme = yup.object().shape({
           .then((data) => {
             console.log("API Response:", { data });
             const { success } = data;
-
             return success || this.createError();
           })
           .catch((e) => {

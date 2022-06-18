@@ -61,7 +61,7 @@ const initialValues = {
   password: "prueba",
   confirm_password: "prueba",
   email: "prueba@prueba.com",
-  codigo_doctor: "231",
+  codigo_doctor: "",
   dni: "",
   centro_salud: "prueba",
   ubic_centro_salud: "prueba",

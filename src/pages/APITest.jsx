@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { TouchableHighlight, View } from "react-native";
 import StyledText from "../components/StyledText.jsx";
 import axios from "axios";
-import { API_IA_MIKASA } from "@env";
+import { API_IA_MIKASA_URL } from "@env";
 const APITEST = () => {
   const [message, setMessage] = useState("");
 
   const getMessageAPI = () => {
-    axios.get(`${API_IA_MIKASA}`).then((response) => {
+    axios.get(`${API_IA_MIKASA_URL}`).then((response) => {
       const { data } = response;
       console.log(data);
       setMessage(data.mensaje);
