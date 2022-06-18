@@ -5,7 +5,7 @@ import {
   TouchableOpacity,
   Image,
   TouchableHighlight,
-  TextInput,
+  Text,
 } from "react-native";
 import StyledText from "../components/StyledText.jsx";
 
@@ -23,14 +23,14 @@ const RegisterCH = ({ namePaciente }) => {
       <View style={styles.buttons}>
         <View style={styles.dictado}>
           <View style={styles.textAreaContainer}>
-            <TextInput
+            <Text
               style={styles.textArea}
               underlineColorAndroid="transparent"
-              placeholder="Texto dictado por el doctor"
-              placeholderTextColor="grey"
-              numberOfLines={10}
-              multiline={true}
-            />
+              // numberOfLines={10}
+              // multiline={true}
+            >
+              Texto dictado por el doctor
+            </Text>
           </View>
           <TouchableHighlight>
             <Image
@@ -64,6 +64,7 @@ const styles = StyleSheet.create({
     width: 320,
     justifyContent: "center",
     textAlignVertical: "top",
+    padding: 5,
   },
   image_mic: {
     width: 50,
