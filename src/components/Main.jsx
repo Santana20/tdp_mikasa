@@ -5,14 +5,14 @@ import SingIn from "../pages/SingIn.jsx";
 import VoiceTest from "../pages/VoiceTest.jsx";
 import APITEST from "../pages/APITest.jsx";
 import Home from "../pages/Home.jsx";
-import RegisterCH from "../pages/RegisterCH.jsx";
+import RegisterMH from "../pages/RegisterMH.jsx";
 
 import Constants from "expo-constants";
 
 const Main = () => {
   return (
     <View style={styles.container}>
-      <RegisterCH namePaciente={"Jose"} />
+      <RegisterMH namePaciente={"Jose"} />
       {/* <SingIn /> */}
     </View>
   );

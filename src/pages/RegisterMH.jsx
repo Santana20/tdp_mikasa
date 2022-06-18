@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import StyledText from "../components/StyledText.jsx";
 
-const RegisterCH = ({ namePaciente }) => {
+const RegisterMH = ({ namePaciente }) => {
   return (
     <>
       <View style={styles.header}>
@@ -118,4 +118,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default RegisterCH;
+export default RegisterMH;
