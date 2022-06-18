@@ -6,14 +6,15 @@ import VoiceTest from "../pages/VoiceTest.jsx";
 import APITEST from "../pages/APITest.jsx";
 import Home from "../pages/Home.jsx";
 import RegisterMH from "../pages/RegisterMH.jsx";
+import DigitalSignature from "./DigitalSignature.jsx";
 
 import Constants from "expo-constants";
 
 const Main = () => {
   return (
     <View style={styles.container}>
-      <RegisterMH namePaciente={"Jose"} />
-      {/* <SingIn /> */}
+      {/* <RegisterMH namePaciente={"Jose"} /> */}
+      <DigitalSignature />
     </View>
   );
 };
