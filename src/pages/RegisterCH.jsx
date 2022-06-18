@@ -1,5 +1,12 @@
 import React from "react";
-import { View, StyleSheet, TouchableOpacity, Image } from "react-native";
+import {
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+  TouchableHighlight,
+  TextInput,
+} from "react-native";
 import StyledText from "../components/StyledText.jsx";
 
 const RegisterCH = ({ namePaciente }) => {
@@ -7,27 +14,37 @@ const RegisterCH = ({ namePaciente }) => {
     <>
       <View style={styles.header}>
         <StyledText style={styles.text}>
-          Nombre de paciente {namePaciente}{" "}
+          Nombre de paciente {namePaciente}
         </StyledText>
       </View>
       <View style={styles.body}>
         <Image style={styles.image} source={require("../../assets/logo.png")} />
       </View>
       <View style={styles.buttons}>
-        <View style={styles.row_buttons}>
-          <TouchableOpacity style={styles.button} title="">
-            <StyledText style={styles.text}>Registrar HC </StyledText>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.button}>
-            <StyledText style={styles.text}>Visualizar HC </StyledText>
-          </TouchableOpacity>
+        <View style={styles.dictado}>
+          <View style={styles.textAreaContainer}>
+            <TextInput
+              style={styles.textArea}
+              underlineColorAndroid="transparent"
+              placeholder="Texto dictado por el doctor"
+              placeholderTextColor="grey"
+              numberOfLines={10}
+              multiline={true}
+            />
+          </View>
+          <TouchableHighlight>
+            <Image
+              style={styles.image_mic}
+              source={require("../../assets/microphone.png")}
+            />
+          </TouchableHighlight>
         </View>
         <View style={styles.row_buttons}>
           <TouchableOpacity style={styles.button}>
-            <StyledText style={styles.text}>Reporte de edicion</StyledText>
+            <StyledText style={styles.text}>Registrar</StyledText>
           </TouchableOpacity>
           <TouchableOpacity style={styles.button}>
-            <StyledText style={styles.text}>Cerrar Sesion</StyledText>
+            <StyledText style={styles.text}>Cancelar</StyledText>
           </TouchableOpacity>
         </View>
       </View>
@@ -36,6 +53,22 @@ const RegisterCH = ({ namePaciente }) => {
 };
 
 const styles = StyleSheet.create({
+  textAreaContainer: {
+    borderColor: "#1B5BB5",
+    borderRadius: 15,
+    borderWidth: 2,
+    marginBottom: 10,
+  },
+  textArea: {
+    height: 350,
+    width: 320,
+    justifyContent: "center",
+    textAlignVertical: "top",
+  },
+  image_mic: {
+    width: 50,
+    height: 50,
+  },
   error: {
     color: "red",
     fontSize: 12,
@@ -51,6 +84,12 @@ const styles = StyleSheet.create({
   },
   buttons: {
     alignItems: "center",
+    justifyContent: "center",
+  },
+  dictado: {
+    alignItems: "center",
+    justifyContent: "center",
+    paddingBottom: 10,
   },
   row_buttons: {
     flexDirection: "row",
@@ -63,7 +102,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: "40%",
     justifyContent: "center",
-    padding: 15,
   },
   text: {
     color: "white",
