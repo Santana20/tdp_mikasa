@@ -8,6 +8,7 @@ import {
   Text,
 } from "react-native";
 import StyledText from "../components/StyledText.jsx";
+import VoiceToText from "../components/VoiceToText.jsx";
 
 const RegisterMH = ({ namePaciente }) => {
   return (
@@ -21,24 +22,7 @@ const RegisterMH = ({ namePaciente }) => {
         <Image style={styles.image} source={require("../../assets/logo.png")} />
       </View>
       <View style={styles.buttons}>
-        <View style={styles.dictado}>
-          <View style={styles.textAreaContainer}>
-            <Text
-              style={styles.textArea}
-              underlineColorAndroid="transparent"
-              // numberOfLines={10}
-              // multiline={true}
-            >
-              Texto dictado por el doctor
-            </Text>
-          </View>
-          <TouchableHighlight>
-            <Image
-              style={styles.image_mic}
-              source={require("../../assets/microphone.png")}
-            />
-          </TouchableHighlight>
-        </View>
+        <VoiceToText />
         <View style={styles.row_buttons}>
           <TouchableOpacity style={styles.button}>
             <StyledText style={styles.text}>Registrar</StyledText>

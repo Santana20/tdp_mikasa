@@ -14,7 +14,7 @@ const Main = () => {
   return (
     <View style={styles.container}>
       {/* <RegisterMH namePaciente={"Jose"} /> */}
-      <DigitalSignature />
+      <RegisterMH />
     </View>
   );
 };
